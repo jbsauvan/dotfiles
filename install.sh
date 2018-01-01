@@ -12,5 +12,5 @@ cp zsh/shell_aliases ~/.shell_aliases
 cp zsh/shell_config ~/.shell_config 
 cp zsh/shell_exports ~/.shell_exports 
 cp zsh/shell_functions ~/.shell_functions 
-cp zsh/zshr ~/.zshrc
+cp zsh/zshrc ~/.zshrc
 
