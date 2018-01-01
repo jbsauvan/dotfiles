@@ -1,0 +1,22 @@
+# navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+# ls
+alias ll='ls -alF'
+alias la='ls -A'
+alias lt='ls -Art'
+alias llt='ll -rt'
+
+# zshrc
+alias reload="source ~/.zshrc && echo 'Shell config reloaded from ~/.zshrc'"
+
+# editors
+alias vi=vim.gnome
+
+# python
+alias pip-upgrade-all="pip list --outdated | cut -d '(' -f 1 | xargs sudo -H -E pip install -U"
+
+# root
+alias root='root -l'
