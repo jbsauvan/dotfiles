@@ -1,0 +1,181 @@
+set nocompatible   " be iMproved, required
+filetype off       " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Plugins
+"""""""""""""""
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'junegunn/fzf.vim'
+Plugin 'tpope/vim-sleuth'
+Plugin 'Valloric/YouCompleteMe'
+" Plugin 'fmoralesc/vim-pad'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'sjl/gundo.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'nathanaelkane/vim-indent-guides'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
+" Config general
+"""""""""""""""
+
+" color scheme and font
+syntax on
+" set background=dark
+colorscheme solarized
+set guifont=Hack\ 11
+
+" no compatibility mode
+set nocp
+
+" permanent history
+set undofile 
+" set undodir=$HOME/.vim/undo
+
+"Changing Leader Key
+let mapleader = ";"
+let maplocalleader = "'"
+
+" remap escape key
+" inoremap jk <Esc>
+"inoremap <Esc> <NOP>
+
+" map return in normal mode
+nmap <CR> o<Esc>
+
+" display relative line number
+set number
+set relativenumber
+
+" disable arrow keys
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
+
+" Move between panels with hjkl
+" nmap <C-J> <C-W>j<C-W><Bar>
+" nmap <C-K> <C-W>k<C-W><Bar>
+" nmap <C-H> <C-W>h<C-W><Bar>
+" nmap <C-L> <C-W>l<C-W><Bar>
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+
+" Copy paste from system clipboard
+vnoremap <leader>y "+y
+noremap <leader>p "+p
+
+" make shift-tab working
+inoremap <Esc>[Z <S-Tab>
+" ounmap <Esc>[Z
+
+
+" search options
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+" show text match at the center of the screen
+nnoremap n nzz
+nnoremap N Nzz
+
+" display cursor line
+set cursorline
+
+
+" save when focus out
+au FocusLost * :wa
+
+" default indentation
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
+" config airline
+" """"""""""""""
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+" needed to have airline working for non-split window
+set laststatus=2
+
+" config  NERDTree 
+" """"""""""""""""
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.root', '\.exe']
+" Automatically open if no file specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Close vim if NERDTree is the only window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" config NERDCommenter
+" """"""""""""""""""""
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Allow commenting and inverting empty lines
+let g:NERDCommentEmptyLines = 1
+
+" config fzf
+" """"""""""
+set rtp+=~/.fzf
+" map file search to ctrl-p
+map <C-p> :Files<cr>
+nmap <C-p> :Files<cr>
+" map buffer list
+map <C-b> :Buffers<cr>
+nmap <C-b> :Buffers<cr>
+" search word under cursor with Ag
+nnoremap <silent> <leader>s :call SearchWordWithAg()<CR>
+function! SearchWordWithAg()
+	execute 'Ag' expand('<cword>')
+endfunction
+
+
+" config vim-pad
+" """"""""""""""
+let g:pad#dir = '/home/sauvan/cernbox/notes/'
+let g:pad#default_file_extension = 'md'
+let g:pad#open_in_split = 0
+let g:pad#ignored_extensions = ["pdf", "odt", "docx", "doc", "png"]
+let g:pad#position = { "list" : "right", "pads": "bottom" }
+let g:pad#window_height = 40
+let g:pad#window_width = 60
+
+" config vim-notes
+" """"""""""""""""
+let g:notes_directories = ['/home/sauvan/cernbox/notes/']
+let g:notes_unicode_enabled = 0
+let g:notes_title_sync = 'rename_file'
+
+" config instant-markdown
+" """""""""""""""""""""""
+let g:instant_markdown_autostart = 0
