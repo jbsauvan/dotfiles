@@ -51,7 +51,7 @@ ZSH_THEME="amuse_nogit"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git history pip vi-mode web-search tmuxinator)
+plugins=(git history pip vi-mode web-search tmuxinator taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
 
