@@ -9,6 +9,8 @@ cp ~/.shell_config  ~/.shell_config.backup
 cp ~/.shell_exports  ~/.shell_exports.backup
 cp ~/.shell_functions  ~/.shell_functions.backup
 cp ~/.zshrc ~/.zshrc.backup
+## git
+cp ~/.gitignore ~/.gitignore.backup
 
 # Copy new files
 ## vim
@@ -19,4 +21,6 @@ cp zsh/shell_config ~/.shell_config
 cp zsh/shell_exports ~/.shell_exports 
 cp zsh/shell_functions ~/.shell_functions 
 cp zsh/zshrc ~/.zshrc
+## git
+cp git/gitignore ~/.gitignore
 
