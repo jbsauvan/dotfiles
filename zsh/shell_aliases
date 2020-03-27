@@ -19,9 +19,9 @@ alias vi=vim.gnome
 # alias pip-upgrade-all="pip list --outdated | cut -d '(' -f 1 | xargs sudo -H -E pip install -U"
 # alias pip3-upgrade-all="pip3 list --outdated | tail -n +3 | cut -d ' ' -f 1 | xargs sudo -H -E pip3 install -U"
 alias pip-upgrade-all="pip list --outdated | tail -n +3 | cut -d ' ' -f 1 | while read PACKAGE; do echo \"===== \${PACKAGE} =====\"; sudo -H -E pip install -U \"\${PACKAGE}\"; done"
-alias pip-user-upgrade-all="pip list --user --outdated | tail -n +3 | cut -d ' ' -f 1 | while read PACKAGE; do echo \"===== \${PACKAGE} =====\"; sudo -H -E pip install --user -U \"\${PACKAGE}\"; done"
+alias pip-user-upgrade-all="pip list --user --outdated | tail -n +3 | cut -d ' ' -f 1 | while read PACKAGE; do echo \"===== \${PACKAGE} =====\"; pip install --user -U \"\${PACKAGE}\"; done"
 alias pip3-upgrade-all="pip3 list --outdated | tail -n +3 | cut -d ' ' -f 1 | while read PACKAGE; do echo \"===== \${PACKAGE} =====\"; sudo -H -E pip3 install -U \"\${PACKAGE}\"; done"
-alias pip3-user-upgrade-all="pip3 list --user --outdated | tail -n +3 | cut -d ' ' -f 1 | while read PACKAGE; do echo \"===== \${PACKAGE} =====\"; sudo -H -E pip3 install --user -U \"\${PACKAGE}\"; done"
+alias pip3-user-upgrade-all="pip3 list --user --outdated | tail -n +3 | cut -d ' ' -f 1 | while read PACKAGE; do echo \"===== \${PACKAGE} =====\"; pip3 install --user -U \"\${PACKAGE}\"; done"
 
 # root
 alias root='root -l'
