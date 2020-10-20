@@ -12,4 +12,8 @@ cp -b -u zsh/shell_functions ~/.shell_functions
 cp -b -u zsh/zshrc ~/.zshrc
 ## git
 cp -b -u git/gitignore ~/.gitignore
+## tmux
+cp -b -u tmux/tmux.conf ~/.tmux.conf
+## taskwarrior
+cp -b -u taskwarrior/taskrc ~/.taskrc
 
